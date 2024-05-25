@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'
-import { useParams, Link, useHistory } from 'react-router-dom'
+import { useParams, Link, useNavigate } from 'react-router-dom'
 
 const ArtistView = () => {
     const { id } = useParams()
     const [artistData, setArtistData] = useState([])
-    const history = useHistory()
+    const history = useNavigate()
 
     useEffect(() => {
         const API_URL = `http://localhost:4000/album/${id}`

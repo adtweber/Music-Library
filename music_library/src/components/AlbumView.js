@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
-import { useParams, useHistory } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 
 const AlbumView = (props) => {
     const { id } = useParams()
-    const history = useHistory()
+    const history = useNavigate()
     const [albumData, setAlbumData] = useState([])
 
     useEffect(() => {

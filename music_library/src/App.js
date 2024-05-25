@@ -1,6 +1,6 @@
 import './App.css';
 import { useEffect, useState } from 'react'
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Navigate } from 'react-router-dom'
 import Gallery from './components/Gallery'
 import SearchBar from './components/SearchBar'
 import AlbumView from './components/AlbumView'
@@ -42,23 +42,23 @@ function App() {
     e.preventDefault()
     term = toTitleCase(term)
     setSearchTerm(term)
-    return (<Redirect to="/" />)
+    return (<Navigate to="/" />)
   }
 
   return (
     <div className="App">
       {message}
       <Router>
-        <Route exact path="/">
+        <Routes exact path="/">
           <SearchBar handleSearch={handleSearch} />
           <Gallery data={data} />
-        </Route>
-        <Route path="/album/:id">
+        </Routes>
+        <Routes path="/album/:id">
           <AlbumView term={searchTerm} />
-        </Route>
-        <Route path="/artist/:id">
+        </Routes>
+        <Routes path="/artist/:id">
           <ArtistView term={searchTerm} />
-        </Route>
+        </Routes>
       </Router>
     </div>
   );
